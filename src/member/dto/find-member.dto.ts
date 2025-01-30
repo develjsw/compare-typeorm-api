@@ -27,8 +27,4 @@ export class FindMemberDto {
   @IsOptional()
   @IsString()
   email: string;
-
-  @IsOptional()
-  @IsString()
-  test: string;
 }
