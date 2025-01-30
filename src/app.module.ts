@@ -15,6 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'orm',
       entities: [__dirname + '/**/mysql/*.entity{.ts,.js}'],
       synchronize: false,
+      logging: 'all',
     }),
     MemberModule,
   ],
