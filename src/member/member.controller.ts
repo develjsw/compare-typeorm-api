@@ -18,7 +18,7 @@ import { CreateMemberDto } from './dto/create-member.dto';
 import { FindMemberDto } from './dto/find-member.dto';
 import { UpdateMemberService } from './servicies/update-member.service';
 import { UpdateMemberDto } from './dto/update-member.dto';
-import { TPaging } from './type/paging';
+import { TPaging } from '../type/paging';
 import { DeleteMemberService } from './servicies/delete-member.service';
 
 @Controller('members')

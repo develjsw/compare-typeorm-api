@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { MemberEntity } from '../entities/mysql/member.entity';
 import { MemberRepository } from '../repositories/member.repository';
 import { FindMemberDto } from '../dto/find-member.dto';
-import { TPaging } from '../type/paging';
+import { TPaging } from '../../type/paging';
 
 @Injectable()
 export class FindMemberService {
