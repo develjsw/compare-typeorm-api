@@ -38,7 +38,7 @@ export class MemberController {
   }
 
   @Get()
-  @UsePipes(ValidationPipe)
+  @UsePipes(new ValidationPipe({ transform: true }))
   async findMemberWithPagingByConditions(
     @Query() findMemberDto: FindMemberDto,
   ): Promise<TPaging<MemberEntity>> {
@@ -48,7 +48,7 @@ export class MemberController {
   }
 
   @Post()
-  @UsePipes(ValidationPipe)
+  @UsePipes(new ValidationPipe({ transform: true }))
   async createMember(
     @Body() createMemberDto: CreateMemberDto,
   ): Promise<{ memberId: number }> {
@@ -56,7 +56,7 @@ export class MemberController {
   }
 
   @Patch(':memberId')
-  @UsePipes(ValidationPipe)
+  @UsePipes(new ValidationPipe({ transform: true }))
   async updateMemberById(
     @Param('memberId', ParseIntPipe) memberId: number,
     @Body() updateMemberDto: UpdateMemberDto,
