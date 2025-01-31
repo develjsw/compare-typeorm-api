@@ -40,4 +40,19 @@
         
 
 4. ORM 및 데이터 액세스 모듈 설정 비교
-    - 작성중
+    <br> [ TypeORM ] <br>
+    [ app.module.ts ]<br>
+      <img width="362" alt="typeorm 설정" src="https://github.com/user-attachments/assets/9f314079-9757-4f71-80db-5fc0f9be3913" /><br>
+    <br> [ Prisma ] <br>
+      [ schema.prisma ] <br>
+      <img width="196" alt="prisma orm 설정2" src="https://github.com/user-attachments/assets/e48b5d41-55f7-4a9c-b014-f8be11cbd925" /><br>
+      [ .env ]<br>
+      <img width="725" alt="prisma orm 설정4" src="https://github.com/user-attachments/assets/09632f13-3963-442a-ab7b-af25fdf8a9a9" /><br>
+      [ prisma.service.ts ]<br>
+      <img width="460" alt="prisma orm 설정6" src="https://github.com/user-attachments/assets/ac80d933-13ec-40c2-9621-0912e236cb59" /><br>
+
+
+5. Relations 비교
+
+
+6. Transaction 비교
