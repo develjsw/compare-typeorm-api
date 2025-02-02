@@ -6,32 +6,26 @@ import { TPaging } from '../../type/paging';
 
 @Injectable()
 export class FindMemberService {
-  constructor(private readonly memberRepository: MemberRepository) {}
+    constructor(private readonly memberRepository: MemberRepository) {}
 
-  async findMemberById(memberId: number): Promise<MemberEntity> {
-    return await this.memberRepository.findMemberById(memberId);
-  }
+    async findMemberById(memberId: number): Promise<MemberEntity> {
+        return await this.memberRepository.findMemberById(memberId);
+    }
 
-  async findMemberWithPagingByConditions(
-    findMemberDto: FindMemberDto,
-  ): Promise<TPaging<MemberEntity>> {
-    const { page, take } = findMemberDto;
+    async findMemberWithPagingByConditions(findMemberDto: FindMemberDto): Promise<TPaging<MemberEntity>> {
+        const { page, take } = findMemberDto;
 
-    const memberCount: number =
-      await this.memberRepository.findMemberCountByConditions(findMemberDto);
+        const memberCount: number = await this.memberRepository.findMemberCountByConditions(findMemberDto);
 
-    const memberList: MemberEntity[] =
-      await this.memberRepository.findMemberWithPagingByConditions(
-        findMemberDto,
-      );
+        const memberList: MemberEntity[] = await this.memberRepository.findMemberWithPagingByConditions(findMemberDto);
 
-    return {
-      paging: {
-        page,
-        take,
-        count: memberCount,
-      },
-      data: memberList,
-    };
-  }
+        return {
+            paging: {
+                page,
+                take,
+                count: memberCount
+            },
+            data: memberList
+        };
+    }
 }

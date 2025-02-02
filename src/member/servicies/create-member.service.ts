@@ -6,23 +6,16 @@ import { MemberEntity } from '../entities/mysql/member.entity';
 
 @Injectable()
 export class CreateMemberService {
-  constructor(private readonly memberRepository: MemberRepository) {}
+    constructor(private readonly memberRepository: MemberRepository) {}
 
-  async createMember(
-    createMemberDto: CreateMemberDto,
-  ): Promise<{ memberId: number }> {
-    const memberEntity: MemberEntity = plainToInstance(
-      MemberEntity,
-      createMemberDto,
-    );
-    memberEntity.createdAt = new Date();
+    async createMember(createMemberDto: CreateMemberDto): Promise<{ memberId: number }> {
+        const memberEntity: MemberEntity = plainToInstance(MemberEntity, createMemberDto);
+        memberEntity.createdAt = new Date();
 
-    const memberId: number = await this.memberRepository.createMember(
-      memberEntity,
-    );
+        const memberId: number = await this.memberRepository.createMember(memberEntity);
 
-    return {
-      memberId,
-    };
-  }
+        return {
+            memberId
+        };
+    }
 }

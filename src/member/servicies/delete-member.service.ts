@@ -3,13 +3,13 @@ import { MemberRepository } from '../repositories/member.repository';
 
 @Injectable()
 export class DeleteMemberService {
-  constructor(private readonly memberRepository: MemberRepository) {}
+    constructor(private readonly memberRepository: MemberRepository) {}
 
-  async deleteMemberById(memberId: number): Promise<{ memberId: number }> {
-    await this.memberRepository.deleteMemberById(memberId);
+    async deleteMemberById(memberId: number): Promise<{ memberId: number }> {
+        await this.memberRepository.deleteMemberById(memberId);
 
-    return {
-      memberId,
-    };
-  }
+        return {
+            memberId
+        };
+    }
 }
