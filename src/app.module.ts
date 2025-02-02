@@ -3,6 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MemberModule } from './member/member.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GoodsModule } from './goods/goods.module';
+import { OrderModule } from './order/order.module';
+import { OrderDetailModule } from './order-detail/order-detail.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -13,11 +17,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'develjsw1993!@',
       database: 'orm',
-      entities: [__dirname + '/**/mysql/*.entity{.ts,.js}'],
+      entities: [__dirname + '/**/mysql/*.entities{.ts,.js}'],
       synchronize: false,
       logging: 'all',
     }),
     MemberModule,
+    GoodsModule,
+    OrderModule,
+    OrderDetailModule,
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
