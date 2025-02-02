@@ -1,8 +1,10 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { OrderEntity } from '../../../order/entities/mysql/order.entity';
 
 @Entity('member')
 export class MemberEntity {
-  @PrimaryColumn('int', {
+  @PrimaryGeneratedColumn({
+    type: 'int',
     name: 'member_id',
   })
   memberId: number;
@@ -26,4 +28,7 @@ export class MemberEntity {
     name: 'updated_at',
   })
   updatedAt: Date;
+
+  @OneToMany(() => OrderEntity, (order: OrderEntity) => order.member)
+  orders: OrderEntity[];
 }

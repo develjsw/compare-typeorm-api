@@ -7,6 +7,7 @@ import { GoodsModule } from './goods/goods.module';
 import { OrderModule } from './order/order.module';
 import { OrderDetailModule } from './order-detail/order-detail.module';
 import { PaymentModule } from './payment/payment.module';
+import { RefundModule } from './refund/refund.module';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { PaymentModule } from './payment/payment.module';
       username: 'root',
       password: 'develjsw1993!@',
       database: 'orm',
-      entities: [__dirname + '/**/mysql/*.entities{.ts,.js}'],
+      entities: [__dirname + '/**/mysql/*.entity{.ts,.js}'],
       synchronize: false,
       logging: 'all',
     }),
@@ -26,6 +27,7 @@ import { PaymentModule } from './payment/payment.module';
     OrderModule,
     OrderDetailModule,
     PaymentModule,
+    RefundModule,
   ],
   controllers: [AppController],
   providers: [AppService],
