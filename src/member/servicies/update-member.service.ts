@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { MemberRepository } from '../repositories/member.repository';
 import { UpdateMemberDto } from '../dto/update-member.dto';
 import { MemberEntity } from '../entities/mysql/member.entity';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class UpdateMemberService {
@@ -18,7 +19,10 @@ export class UpdateMemberService {
       throw new NotFoundException('회원 정보가 존재하지 않습니다.');
     }
 
-    await this.memberRepository.updateMemberById(memberId, updateMemberDto);
+    const memberEntity = plainToInstance(MemberEntity, updateMemberDto);
+    memberEntity.updatedAt = new Date();
+
+    await this.memberRepository.updateMemberById(memberId, memberEntity);
 
     return {
       memberId,

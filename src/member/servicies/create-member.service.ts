@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { MemberRepository } from '../repositories/member.repository';
 import { CreateMemberDto } from '../dto/create-member.dto';
+import { plainToInstance } from 'class-transformer';
+import { MemberEntity } from '../entities/mysql/member.entity';
 
 @Injectable()
 export class CreateMemberService {
@@ -9,8 +11,14 @@ export class CreateMemberService {
   async createMember(
     createMemberDto: CreateMemberDto,
   ): Promise<{ memberId: number }> {
-    const memberId: number = await this.memberRepository.createMember(
+    const memberEntity: MemberEntity = plainToInstance(
+      MemberEntity,
       createMemberDto,
+    );
+    memberEntity.createdAt = new Date();
+
+    const memberId: number = await this.memberRepository.createMember(
+      memberEntity,
     );
 
     return {

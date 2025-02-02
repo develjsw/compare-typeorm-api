@@ -16,4 +16,14 @@ export class MemberEntity {
     name: 'email',
   })
   email: string;
+
+  @Column('datetime', {
+    name: 'created_at',
+  })
+  createdAt: Date;
+
+  @Column('datetime', {
+    name: 'updated_at',
+  })
+  updatedAt: Date;
 }
